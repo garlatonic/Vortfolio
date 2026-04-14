@@ -2,16 +2,21 @@
 import Hero from "@/app/(home)/_components/hero";
 import About from "@/app/(home)/_components/about";
 import TechStack from "@/app/(home)/_components/tech-stack";
+import Projects from "@/app/(home)/_components/projects";
 
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Contact from "./contact";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Container() {
   const container = useRef<HTMLDivElement>(null);
+  const projectsSectionRef = useRef<HTMLDivElement>(null);
+  const projectsWrapperRef = useRef<HTMLDivElement>(null);
+  const projectsTrackRef = useRef<HTMLUListElement>(null);
 
   useGSAP(
     () => {
@@ -67,6 +72,7 @@ export default function Container() {
       };
 
       let trigger: ScrollTrigger | undefined;
+      let projectsHorizontalTrigger: ScrollTrigger | undefined;
 
       if (lines.length) {
         trigger = ScrollTrigger.create({
@@ -81,8 +87,33 @@ export default function Container() {
         updateSelectedByViewportCenter();
       }
 
+      const projectsSection = projectsSectionRef.current;
+      const projectsWrapper = projectsWrapperRef.current;
+      const projectsTrack = projectsTrackRef.current;
+
+      if (projectsSection && projectsWrapper && projectsTrack) {
+        const projectsTween = gsap.to(projectsTrack, {
+          x: () =>
+            `-${projectsTrack.scrollWidth - projectsWrapper.offsetWidth}px`,
+          ease: "none",
+          scrollTrigger: {
+            trigger: projectsSection,
+            start: "top top",
+            end: () =>
+              `+=${projectsTrack.scrollWidth - projectsWrapper.offsetWidth}`,
+            scrub: true,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        projectsHorizontalTrigger = projectsTween.scrollTrigger ?? undefined;
+      }
+
       return () => {
         trigger?.kill();
+        projectsHorizontalTrigger?.kill();
       };
     },
     { scope: container },
@@ -93,6 +124,13 @@ export default function Container() {
       <Hero className="hero" />
       <About className="about" />
       <TechStack className="tech-stack" />
+      <Projects
+        className="projects"
+        sectionRef={projectsSectionRef}
+        wrapperRef={projectsWrapperRef}
+        trackRef={projectsTrackRef}
+      />
+      <Contact />
     </main>
   );
 }
