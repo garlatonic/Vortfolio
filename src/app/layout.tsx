@@ -1,16 +1,14 @@
-import { IBM_Plex_Mono, Hanken_Grotesk, Inter } from "next/font/google";
+import { Noto_Sans_KR } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
-import Header from "@/components/common/Header";
-import { cn } from "@/lib/utils";
+import { CustomThemeProvider } from "@/components/custom-theme-provider";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
+const notoSansKR = Noto_Sans_KR({
+  subsets: ["latin"],
+  variable: "--font-noto-sans-kr",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
-const hankenGrotesk = Hanken_Grotesk({ weight: ["900"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,15 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={cn("font-sans", inter.variable)}>
+    <html lang="ko">
       <body
         className={twMerge(
-          "bg-background text-zinc-100 antialiased",
-          ibmPlexMono.className,
+          notoSansKR.className,
         )}
       >
-        <Header className={hankenGrotesk.className} />
-        {children}
+        <CustomThemeProvider>{children}</CustomThemeProvider>
       </body>
     </html>
   );
