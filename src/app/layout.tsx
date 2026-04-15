@@ -21,12 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body
-        className={twMerge(
-          notoSansKR.className,
-        )}
-      >
+    <html lang="ko" suppressHydrationWarning>
+      <body className={twMerge(notoSansKR.className)}>
         <CustomThemeProvider>{children}</CustomThemeProvider>
       </body>
     </html>
