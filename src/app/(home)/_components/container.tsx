@@ -22,6 +22,7 @@ export default function Container() {
     () => {
       const query = gsap.utils.selector(container);
 
+      // Hero 섹션 페이드 아웃 및 축소 애니메이션
       gsap.fromTo(
         ".hero",
         { opacity: 1, scale: 1 },
@@ -38,7 +39,7 @@ export default function Container() {
         },
       );
 
-      // About
+      // About 섹션 활성화 라인 애니메이션
       const aboutSection = query(".about");
       const aboutActiveLine = query(".about-active");
 
@@ -87,6 +88,7 @@ export default function Container() {
         updateSelectedByViewportCenter();
       }
 
+      // 프로젝트 섹션 가로 스크롤 애니메이션
       const projectsSection = projectsSectionRef.current;
       const projectsWrapper = projectsWrapperRef.current;
       const projectsTrack = projectsTrackRef.current;
