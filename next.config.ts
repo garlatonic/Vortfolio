@@ -12,8 +12,16 @@ const nextConfig: NextConfig = {
     },
   },
   webpack(config) {
+    // 기존 SVG 처리 룰에서 .svg를 제외시켜야 @svgr/webpack이 올바르게 동작함
+    const fileLoaderRule = config.module.rules.find((rule: { test?: RegExp }) =>
+      rule.test?.test?.(".svg"),
+    );
+    if (fileLoaderRule) {
+      fileLoaderRule.exclude = /\.svg$/i;
+    }
     config.module.rules.push({
-      test: /\.svg$/,
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"],
     });
     return config;
