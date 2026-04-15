@@ -1,14 +1,15 @@
 "use client";
+
 import Hero from "@/app/(home)/_components/hero";
 import About from "@/app/(home)/_components/about";
 import TechStack from "@/app/(home)/_components/tech-stack";
 import Projects from "@/app/(home)/_components/projects";
+import Footer from "@/components/common/footer";
 
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Contact from "./contact";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -122,7 +123,7 @@ export default function Container() {
   );
 
   return (
-    <main ref={container} className="space-y-50">
+    <main ref={container} className="space-y-50 overflow-hidden">
       <Hero className="hero" />
       <About className="about" />
       <TechStack className="tech-stack" />
@@ -132,7 +133,7 @@ export default function Container() {
         wrapperRef={projectsWrapperRef}
         trackRef={projectsTrackRef}
       />
-      <Contact />
+      <Footer />
     </main>
   );
 }

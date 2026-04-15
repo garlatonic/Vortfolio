@@ -21,7 +21,7 @@ export default function About({ className }: { className?: string }) {
             프론트엔드 개발자
           </span>
         </h3>
-        <div className="about-body space-y-5 text-lg md:text-xl lg:text-xl leading-relaxed break-keep text-muted-foreground font-medium lg:[&>p>br]:inline">
+        <div className="about-body flex-1 space-y-5 text-lg md:text-xl lg:text-xl leading-relaxed break-keep text-muted-foreground font-medium lg:[&>p>br]:inline">
           <p className="about-desc">
             3년간의{" "}
             <span className="about-highlight text-foreground font-bold">
@@ -34,8 +34,8 @@ export default function About({ className }: { className?: string }) {
             <span className="about-highlight text-foreground font-bold">
               기술적 완성도와 사용자 중심의 관점
             </span>
-            을 함께 고민하며, <br className="hidden lg:block" />더 자연스럽고 직관적인
-            사용 경험을 만드는 데 집중하고 있습니다.
+            을 함께 고민하며, <br className="hidden lg:block" />더 자연스럽고
+            직관적인 사용 경험을 만드는 데 집중하고 있습니다.
           </p>
 
           <p className="about-desc">
