@@ -1,5 +1,7 @@
 type Project = {
-  id: string; // 프로젝트 고유 ID (예: "freshjb", "pokemonstore")
+  number: number; // 프로젝트 번호 (예: 1, 2, 3, ...)
+  category: string; // 프로젝트 카테고리 (예: "실무 프로젝트", "데브코스 파이널 프로젝트", "데브코스 FE 팀 프로젝트")
+  slug: string; // 프로젝트 고유 ID (예: "freshjb", "pokemonstore")
   name: string; // 프로젝트 이름
   overview: string; // 한 줄 개요
   description: string[]; // 상세 설명 문단 목록

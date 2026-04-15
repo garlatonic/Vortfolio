@@ -1,12 +1,12 @@
 "use client";
+
+import ProjectItem from "@/app/(home)/_components/project-item";
 import SectionTitle from "@/components/common/section-title";
 import SectionWrapper from "@/components/common/section-wrapper";
+
 import { projects } from "@/data/projects";
-import Image from "next/image";
-import Link from "next/link";
 import type { RefObject } from "react";
 import { twMerge } from "tailwind-merge";
-import ProjectItem from "./project-item";
 
 type ProjectsProps = {
   className?: string;
@@ -28,16 +28,13 @@ export default function Projects({
       isFullWidth
     >
       <SectionTitle title="Projects" className="inner projects-section-title" />
-      <div
-        ref={wrapperRef}
-        className="px-4 md:px-8 lg:px-12 projects-track-wrapper overflow-hidden"
-      >
+      <div ref={wrapperRef} className="projects-track-wrapper overflow-hidden">
         <ul
           ref={trackRef}
-          className="inline-flex w-max flex-nowrap gap-5 md:gap-10 lg:gap-20 xl:gap-40"
+          className="inline-flex w-max flex-nowrap gap-5 md:gap-10 lg:gap-20 xl:gap-40 px-4 md:px-8 lg:px-12 "
         >
           {projects.map((project) => (
-            <ProjectItem key={project.id} project={project} />
+            <ProjectItem key={project.slug} project={project} />
           ))}
         </ul>
       </div>
