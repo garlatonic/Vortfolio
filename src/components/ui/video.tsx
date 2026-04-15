@@ -36,8 +36,9 @@ export default function Video({
     <div className="relative w-full group cursor-pointer border aspect-video">
       <video
         ref={videoRef}
-        className="aspect-video object-cover"
+        className="aspect-video object-cover w-full"
         playsInline
+        muted
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
         onEnded={() => setIsPlaying(false)}
