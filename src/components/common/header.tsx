@@ -23,17 +23,6 @@ export default function Header({
           garlatonic.cv
         </Link>
         <ThemeButton />
-        {/* <ol>
-            <li>
-              <Link href="/pages/about.html">about</Link>
-            </li>
-            <li>
-              <Link href="/pages/project.html">project</Link>
-            </li>
-            <li>
-              <Link href="/pages/contact.html">contact</Link>
-            </li>
-          </ol> */}
       </nav>
     </header>
   );
