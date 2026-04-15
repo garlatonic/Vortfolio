@@ -3,6 +3,12 @@ import { projects } from "@/data/projects";
 import Image from "next/image";
 import Link from "next/link";
 
+export async function generateStaticParams() {
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
 export default async function Page({
   params,
 }: {
@@ -31,10 +37,7 @@ export default async function Page({
   }
 
   return (
-    <main
-      id="main-content"
-      className="pt-32 pb-20 px-6 md:px-12 inner"
-    >
+    <main id="main-content" className="pt-32 pb-20 px-6 md:px-12 inner">
       {/* Section 1: Project Hero */}
       <section
         id="project-hero"
