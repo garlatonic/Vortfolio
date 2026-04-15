@@ -1,11 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
 import GithubIcon from "@/../public/ico/ico_github.svg";
 import Image from "next/image";
@@ -23,13 +18,13 @@ export default function ProjectItem({ project }: { project: Project }) {
           <p className="project-category text-xs md:text-base font-medium text-muted-foreground  tracking-wide">
             {project.number.toString().padStart(2, "0")} / {project.category}
           </p>
-          <h3 className="project-title text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-bold leading-tight">
+          <h3 className="project-title text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-bold leading-tight break-keep">
             {project.name}
           </h3>
         </div>
         <Separator />
         <div className="project-body space-y-3 xl:space-y-5">
-          <p className="project-overview text-sm md:text-base xl:text-lg font-medium text-muted-foreground line-clamp-2 md:line-clamp-3">
+          <p className="project-overview text-sm md:text-base xl:text-lg font-medium text-muted-foreground line-clamp-2">
             {project.description[0]}
           </p>
           <ul className="flex flex-wrap gap-2">
@@ -45,56 +40,27 @@ export default function ProjectItem({ project }: { project: Project }) {
         </div>
         <Separator />
         <div className="project-links flex gap-3">
-          <Tooltip>
-            <TooltipTrigger>
-              <Button
-                variant="outline"
-                size="icon-lg"
-                className="cursor-pointer"
-              >
-                <Link href={`/projects/${project.slug}`}>
-                  <FileTextIcon />
-                  <span className="sr-only">프로젝트 상세보기</span>
-                </Link>
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent side="bottom" sideOffset={10}>
-              <p className="font-medium">프로젝트 상세보기</p>
-            </TooltipContent>
-          </Tooltip>
+          <Button variant="outline" size="icon-lg" className="cursor-pointer">
+            <Link href={`/projects/${project.slug}`}>
+              <FileTextIcon />
+              <span className="sr-only">프로젝트 상세보기</span>
+            </Link>
+          </Button>
           {project.link && (
-            <Tooltip>
-              <TooltipTrigger>
-                <Button
-                  variant="outline"
-                  size="icon-lg"
-                  className="cursor-pointer"
-                >
-                  <Link href={project.link} target="_blank">
-                    <ExternalLinkIcon />
-                    <span className="sr-only">사이트로 이동</span>
-                  </Link>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" sideOffset={10}>
-                <p className="font-medium">사이트로 이동</p>
-              </TooltipContent>
-            </Tooltip>
+            <Button variant="outline" size="icon-lg" className="cursor-pointer">
+              <Link href={project.link} target="_blank">
+                <ExternalLinkIcon />
+                <span className="sr-only">사이트로 이동</span>
+              </Link>
+            </Button>
           )}
           {project.githubLink && (
-            <Tooltip>
-              <TooltipTrigger>
-                <Button size="icon-lg" className="cursor-pointer">
-                  <Link href={project.githubLink} target="_blank">
-                    <GithubIcon />
-                    <span className="sr-only">GitHub에서 프로젝트 보기</span>
-                  </Link>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" sideOffset={10}>
-                <p className="font-medium">GitHub에서 프로젝트 보기</p>
-              </TooltipContent>
-            </Tooltip>
+            <Button size="icon-lg" className="cursor-pointer">
+              <Link href={project.githubLink} target="_blank">
+                <GithubIcon />
+                <span className="sr-only">GitHub에서 프로젝트 보기</span>
+              </Link>
+            </Button>
           )}
         </div>
       </div>
