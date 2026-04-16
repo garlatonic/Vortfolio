@@ -28,7 +28,7 @@ export default async function Page({
 
   if (!project) {
     return (
-      <main className="pt-32 pb-20 px-6 md:px-12 flex flex-col justify-center items-center min-h-screen">
+      <main className="py-10 inner flex flex-col justify-center items-center min-h-screen">
         <h1 className="text-4xl font-bold text-center">
           존재하지 않는 프로젝트입니다.
         </h1>
@@ -49,23 +49,25 @@ export default async function Page({
   }
 
   return (
-    <main className="pt-32 pb-20 space-y-20 inner break-keep">
+    <main className="py-30 space-y-10 sm:space-y-20 inner">
       <SectionWrapper className="project-hero" isFullWidth>
-        <div className="flex justify-between lg:items-end gap-10 flex-col lg:flex-row">
+        <div className="flex justify-between lg:items-end gap-5 md:gap-10 flex-col lg:flex-row">
           <div className="space-y-8 ">
-            <h1 className="text-7xl lg:text-7xl xl:text-8xl font-bold tracking-tighter">
+            <h1 className="text-4xl lg:text-7xl xl:text-8xl font-bold">
               {project?.name}
             </h1>
-            <p className="font-medium text-xl md:text-2xl text-muted-foreground leading-relaxed">
+            <p className="font-medium text-base sm:text-lg md:text-2xl text-muted-foreground leading-relaxed">
               {project?.overview}
             </p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-2 md:gap-4">
             {project?.link && (
               <Link href={project.link} target="_blank">
                 <Button variant="outline" size="lg" className="rounded-none">
                   <ExternalLinkIcon />
-                  배포 사이트로 이동
+                  <span className="sr-only sm:not-sr-only">
+                    배포 사이트로 이동
+                  </span>
                 </Button>
               </Link>
             )}
@@ -73,7 +75,9 @@ export default async function Page({
               <Link href={project.githubLink} target="_blank">
                 <Button size="lg" className="rounded-none">
                   <GithubIcon />
-                  프로젝트 저장소로 이동
+                  <span className="sr-only sm:not-sr-only">
+                    프로젝트 저장소로 이동
+                  </span>
                 </Button>
               </Link>
             )}
@@ -97,16 +101,12 @@ export default async function Page({
           />
         </SectionWrapper>
       )}
-
       {project.troubleshooting && (
         <SectionWrapper className="project-problem" isFullWidth>
           <SectionTitle title="Challenge & Solution" />
           {project.troubleshooting.map((ts, index) => (
             <Fragment key={ts.title}>
-              <TroubleShooting
-                troubleShooting={ts}
-                slug={project.slug}
-              />
+              <TroubleShooting troubleShooting={ts} slug={project.slug} />
               {index !== (project?.troubleshooting?.length ?? 0) - 1 && (
                 <Separator />
               )}

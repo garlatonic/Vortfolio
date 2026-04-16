@@ -12,10 +12,10 @@ export default function Header({
   return (
     <header
       className={twMerge(
-        "header py-5",
+        "header py-5 top-0 left-0 right-0 z-10",
         className,
-        !isMain && "fixed top-0 left-0 right-0 z-10",
-        isMain && "w-full",
+        !isMain && "fixed",
+        isMain && "absolute w-full",
       )}
     >
       <nav className="gnb flex justify-between items-center w-full">

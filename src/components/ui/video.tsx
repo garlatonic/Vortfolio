@@ -56,26 +56,26 @@ export default function Video({
                 fill
                 className="object-cover scale-105"
               />
-              <div className="absolute inset-0 bg-black/45 backdrop-blur-xs" />
+              <div className="absolute inset-0 bg-black/50 backdrop-blur-xs" />
             </div>
           )}
-          <div className="relative text-center space-y-6">
+          <div className="relative text-center space-y-2 md:space-y-6 text-white inner">
             <div
-              className="w-20 h-20 rounded-full border border-white/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all duration-300 backdrop-blur-sm mx-auto"
+              className="size-10 md:size-20 rounded-full border border-white/30 flex items-center justify-center group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all duration-300 backdrop-blur-sm mx-auto"
               onClick={handlePlay}
             >
-              <PlayIcon className="size-10" />
+              <PlayIcon className="size-5 md:size-10" />
               <span className="sr-only">재생</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold">시연 영상</h2>
-            <p className="text-muted-foreground md:text-lg text-base">
+            <h2 className="text-xl md:text-5xl font-bold">시연 영상</h2>
+            <p className="text-muted-foreground md:text-lg text-xs">
               프로젝트의 주요 기능과 인터랙션을 영상으로 확인해보세요.
             </p>
           </div>
         </div>
       )}
       {isPlaying && (
-        <div className="absolute inset-0 flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity bg-black/45 backdrop-blur-xs">
+        <div className="absolute inset-0 flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity bg-black/50 backdrop-blur-xs  text-white">
           <div
             className="w-20 h-20 rounded-full border border-white/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all duration-300 backdrop-blur-sm mx-auto"
             onClick={handlePlay}

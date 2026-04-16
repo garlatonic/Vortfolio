@@ -8,7 +8,7 @@ export default function TroubleShooting({ troubleShooting, slug }: { troubleShoo
     >
       <div className="lg:col-span-4 space-y-24">
         <div className="sticky top-32 space-y-4 leading-normal">
-          <h2 className="text-3xl font-bold uppercase tracking-tight">
+          <h2 className="text-3xl font-bold uppercase">
             {troubleShooting.title}
           </h2>
           <div className="h-1 w-12 bg-foreground" />
@@ -21,7 +21,7 @@ export default function TroubleShooting({ troubleShooting, slug }: { troubleShoo
         <Separator />
         <div className="space-y-12">
           <div className="space-y-4 leading-normal">
-            <h2 className="text-3xl font-bold uppercase tracking-tight">
+            <h2 className="text-3xl font-bold uppercase">
               The Solution
             </h2>
             <div className="h-1 w-12 bg-foreground" />

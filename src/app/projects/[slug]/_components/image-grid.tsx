@@ -12,7 +12,7 @@ export default function ImageGrid({ project }: { project: Project }) {
             className="transition-transform group-hover:scale-105"
           />
         </div>
-        {project?.detailImages.length && (
+        {project?.detailImages && (
           <div className="grid grid-cols-2 gap-4 lg:gap-8">
             {project?.detailImages.map((imgSrc, index) => (
               <div
