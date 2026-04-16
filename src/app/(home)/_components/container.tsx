@@ -89,12 +89,15 @@ export default function Container() {
         updateSelectedByViewportCenter();
       }
 
-      // 프로젝트 섹션 가로 스크롤 애니메이션
+      // 프로젝트 섹션 가로 스크롤 애니메이션 (모바일 제외)
       const projectsSection = projectsSectionRef.current;
       const projectsWrapper = projectsWrapperRef.current;
       const projectsTrack = projectsTrackRef.current;
 
-      if (projectsSection && projectsWrapper && projectsTrack) {
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 768px)", () => {
+        if (!projectsSection || !projectsWrapper || !projectsTrack) return;
+
         const projectsTween = gsap.to(projectsTrack, {
           x: () =>
             `-${projectsTrack.scrollWidth - projectsWrapper.offsetWidth}px`,
@@ -112,7 +115,11 @@ export default function Container() {
         });
 
         projectsHorizontalTrigger = projectsTween.scrollTrigger ?? undefined;
-      }
+
+        return () => {
+          mm.revert();
+        };
+      });
 
       return () => {
         trigger?.kill();
