@@ -22,16 +22,13 @@ export default function Hero({ className }: { className?: string }) {
           className,
         )}
       >
-        <div className="inner h-full flex flex-col justify-between items-end">
-          <Header className={ibmPlexMono.className} isMain />
-          <div className="absolute top-1/2 -translate-y-1/2 w-full">
-            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-bold leading-snug">
-              Hello, I&rsquo;m
-              <br />
-              <span className="text-primary">SangA Park</span>.
-            </h1>
-          </div>
-          <div className="h-32 sm:h-36 md:h-40 lg:h-44 flex justify-center items-center mb-5">
+        <div className="inner h-full flex  items-center">
+          <Header className={twMerge(ibmPlexMono.className)} isMain />
+          <h1 className="flex flex-col text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-bold leading-snug pointer-events-none">
+            <span>Hello, I&rsquo;m</span>
+            <span>SangA Park.</span>
+          </h1>
+          <div className="absolute bottom-0 left-0 w-full h-32 sm:h-36 md:h-40 lg:h-44 flex justify-end items-center mb-5">
             <div className="relative size-32 sm:size-36 md:size-40 lg:size-44">
               <CircularText
                 className="opacity-50"
