@@ -13,6 +13,7 @@ type ProjectsProps = {
   sectionRef?: RefObject<HTMLDivElement | null>;
   wrapperRef?: RefObject<HTMLDivElement | null>;
   trackRef?: RefObject<HTMLUListElement | null>;
+  onOpenModal: (slug: string) => void;
 };
 
 export default function Projects({
@@ -20,6 +21,7 @@ export default function Projects({
   sectionRef,
   wrapperRef,
   trackRef,
+  onOpenModal,
 }: ProjectsProps) {
   return (
     <SectionWrapper
@@ -31,10 +33,14 @@ export default function Projects({
       <div ref={wrapperRef} className="projects-track-wrapper overflow-hidden">
         <ul
           ref={trackRef}
-          className="inline-flex w-max flex-nowrap gap-5 md:gap-10 lg:gap-20 xl:gap-40 px-4 md:px-8 lg:px-12 "
+          className="md:inline-flex flex md:w-max flex-col md:flex-row gap-20 md:flex-nowrap md:gap-10 lg:gap-20 xl:gap-40 px-8 lg:px-12 "
         >
           {projects.map((project) => (
-            <ProjectItem key={project.slug} project={project} />
+            <ProjectItem
+              key={project.slug}
+              project={project}
+              onOpenModal={onOpenModal}
+            />
           ))}
         </ul>
       </div>

@@ -59,7 +59,6 @@ export default function ProjectItem({
           src={project.thumbnail}
           alt={`${project.name} screenshot`}
           fill
-          className="transition-transform duration-300 group-hover:scale-105"
           priority
         />
       </div>

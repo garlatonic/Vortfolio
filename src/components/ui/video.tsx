@@ -59,16 +59,16 @@ export default function Video({
               <div className="absolute inset-0 bg-black/50 backdrop-blur-xs" />
             </div>
           )}
-          <div className="relative text-center space-y-2 md:space-y-6 text-white inner">
+          <div className="relative text-center text-white inner">
             <div
-              className="size-10 md:size-20 rounded-full border border-white/30 flex items-center justify-center group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all duration-300 backdrop-blur-sm mx-auto"
+              className="size-10 lg:size-15 rounded-full border border-white/30 flex items-center justify-center group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all duration-300 backdrop-blur-sm mx-auto mb-4"
               onClick={handlePlay}
             >
-              <PlayIcon className="size-5 md:size-10" />
+              <PlayIcon className="size-5 lg:size-6" />
               <span className="sr-only">재생</span>
             </div>
-            <h2 className="text-xl md:text-5xl font-bold">시연 영상</h2>
-            <p className="text-muted-foreground md:text-lg text-xs">
+            <h2 className="text-xl lg:text-2xl font-bold mb-1">시연 영상</h2>
+            <p className="text-muted-foreground lg:text-base text-xs">
               프로젝트의 주요 기능과 인터랙션을 영상으로 확인해보세요.
             </p>
           </div>
@@ -77,10 +77,10 @@ export default function Video({
       {isPlaying && (
         <div className="absolute inset-0 flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity bg-black/50 backdrop-blur-xs  text-white">
           <div
-            className="w-20 h-20 rounded-full border border-white/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all duration-300 backdrop-blur-sm mx-auto"
+            className="size-10 lg:size-15 rounded-full border border-white/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all duration-300 backdrop-blur-sm mx-auto"
             onClick={handlePlay}
           >
-            <PauseIcon className="size-10" />
+            <PauseIcon className="size-5 lg:size-6" />
             <span className="sr-only">일시정지</span>
           </div>
         </div>

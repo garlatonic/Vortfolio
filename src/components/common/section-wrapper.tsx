@@ -15,7 +15,7 @@ export default function SectionWrapper({
     <section className={className} ref={ref}>
       <div
         className={twMerge(
-          "inner relative flex flex-col gap-20 lg:gap-30",
+          "inner relative flex flex-col gap-10 sm:gap-15 md:gap-20 lg:gap-30",
           isFullWidth && "w-full",
         )}
       >

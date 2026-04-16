@@ -2,14 +2,14 @@
 
 import Hero from "@/app/(home)/_components/hero";
 import About from "@/app/(home)/_components/about";
-import TechStack from "@/app/(home)/_components/tech-stack";
 import Projects from "@/app/(home)/_components/projects";
 import Footer from "@/components/common/footer";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ProjectModal from "@/components/common/project-modal";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -18,6 +18,7 @@ export default function Container() {
   const projectsSectionRef = useRef<HTMLDivElement>(null);
   const projectsWrapperRef = useRef<HTMLDivElement>(null);
   const projectsTrackRef = useRef<HTMLUListElement>(null);
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
 
   useGSAP(
     () => {
@@ -60,34 +61,7 @@ export default function Container() {
         },
       );
 
-      // 기술스택 라인 애니메이션
-      const lines = query(".tech-stack .line") as HTMLElement[];
-
-      const updateSelectedByViewportCenter = () => {
-        const centerY = window.innerHeight * 0.5;
-
-        lines.forEach((line) => {
-          const rect = line.getBoundingClientRect();
-          const lineCenterY = rect.top + rect.height / 2;
-          line.classList.toggle("selected", lineCenterY <= centerY);
-        });
-      };
-
       let trigger: ScrollTrigger | undefined;
-      let projectsHorizontalTrigger: ScrollTrigger | undefined;
-
-      if (lines.length) {
-        trigger = ScrollTrigger.create({
-          trigger: ".tech-stack",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-          onUpdate: updateSelectedByViewportCenter,
-          onRefresh: updateSelectedByViewportCenter,
-        });
-
-        updateSelectedByViewportCenter();
-      }
 
       // 프로젝트 섹션 가로 스크롤 애니메이션 (모바일 제외)
       const projectsSection = projectsSectionRef.current;
@@ -114,8 +88,7 @@ export default function Container() {
           },
         });
 
-        projectsHorizontalTrigger = projectsTween.scrollTrigger ?? undefined;
-
+        trigger = projectsTween.scrollTrigger ?? undefined;
         return () => {
           mm.revert();
         };
@@ -123,7 +96,6 @@ export default function Container() {
 
       return () => {
         trigger?.kill();
-        projectsHorizontalTrigger?.kill();
       };
     },
     { scope: container },
@@ -133,14 +105,15 @@ export default function Container() {
     <main ref={container} className="space-y-50 overflow-hidden">
       <Hero className="hero" />
       <About className="about" />
-      <TechStack className="tech-stack" />
       <Projects
         className="projects"
         sectionRef={projectsSectionRef}
         wrapperRef={projectsWrapperRef}
         trackRef={projectsTrackRef}
+        onOpenModal={setSelectedSlug}
       />
       <Footer />
+      <ProjectModal slug={selectedSlug} onClose={() => setSelectedSlug(null)} />
     </main>
   );
 }
