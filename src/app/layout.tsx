@@ -5,6 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { CustomThemeProvider } from "@/components/custom-theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import MousePointer from "@/components/common/mouse-pointer";
+import { isBrowser } from "react-device-detect";
 
 const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
@@ -37,11 +38,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className={twMerge("**:tracking-tight", notoSansKR.className)}>
+      <body
+        className={twMerge(
+          "**:tracking-tight",
+          notoSansKR.variable,
+          "font-sans",
+        )}
+      >
         <CustomThemeProvider>
           <TooltipProvider>
             {children}
-            <MousePointer />
+            {isBrowser && <MousePointer />}
           </TooltipProvider>
         </CustomThemeProvider>
       </body>

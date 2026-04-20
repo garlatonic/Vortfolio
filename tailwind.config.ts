@@ -13,7 +13,7 @@ export default {
         "primary-hover": "#34D399",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)"],
+        sans: ["var(--font-noto-sans-kr)", "Pretendard", "sans-serif"],
         mono: ["var(--font-geist-mono)"],
       },
     },
