@@ -8,7 +8,7 @@ export default function Modal({ children, onClose }: { children: React.ReactNode
       onClick={onClose}
     >
       <div
-        className="relative bg-background w-full max-w-6xl my-8 mx-4"
+        className="relative bg-background w-full max-w-7xl my-8 mx-4 lg:mx-8"
         onClick={(e) => e.stopPropagation()}
       >
         <Button

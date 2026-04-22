@@ -89,9 +89,6 @@ export default function Container() {
         });
 
         trigger = projectsTween.scrollTrigger ?? undefined;
-        return () => {
-          mm.revert();
-        };
       });
 
       return () => {

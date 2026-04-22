@@ -27,4 +27,8 @@ type TroubleShooting = {
   solution: string; // 해결 방법
   keywords?: string[]; // 핵심 키워드
   codeSnippet?: string; // 코드 스니펫
+  images?: {
+    before: string; // 문제 상황을 보여주는 이미지 경로 또는 URL
+    after: string; // 해결된 상황을 보여주는 이미지 경로 또는 URL
+  };
 };

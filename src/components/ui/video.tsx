@@ -3,6 +3,8 @@
 import { PauseIcon, PlayIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { TYPOGRAPHY } from "@/constants/typography";
+import { twMerge } from "tailwind-merge";
 
 export default function Video({
   src,
@@ -67,8 +69,10 @@ export default function Video({
               <PlayIcon className="size-5 lg:size-6" />
               <span className="sr-only">재생</span>
             </div>
-            <h2 className="text-xl lg:text-2xl font-bold mb-1">시연 영상</h2>
-            <p className="text-muted-foreground lg:text-base text-xs">
+            <h2 className={twMerge(TYPOGRAPHY.video.title, "mb-1")}>
+              시연 영상
+            </h2>
+            <p className={TYPOGRAPHY.video.description}>
               프로젝트의 주요 기능과 인터랙션을 영상으로 확인해보세요.
             </p>
           </div>
