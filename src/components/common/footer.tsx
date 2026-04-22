@@ -16,7 +16,7 @@ const socialLinks = [
   },
   {
     name: "Linkedin",
-    url: "https://www.linkedin.com/in/sanga-park-495630387/",
+    url: "https://www.linkedin.com/in/garlatonic/",
   },
   {
     name: "MailTo",
