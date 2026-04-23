@@ -17,7 +17,12 @@ export const projects: Project[] = [
     githubLink:
       "https://github.com/prgrms-web-devcourse-final-project/WEB6_7_codecrete_FE",
     thumbnail: "/img/img_naeconbu_thumbnail.png",
-    detailImages: [],
+    detailImages: [
+      "/img/img_naeconbu_detail_01.png",
+      "/img/img_naeconbu_detail_02.png",
+      "/img/img_naeconbu_detail_03.png",
+      "/img/img_naeconbu_detail_04.png",
+    ],
     video: {
       src: "/video/video_naeconbu.mp4",
       type: "video/mp4",
@@ -47,10 +52,16 @@ export const projects: Project[] = [
         solution:
           "각 목적지가 있는 일정의 경우 <b>이동 항목이 자동으로 생성되는 방식으로 UX를 재설계</b>해 사용자 입력 횟수를 최소화했습니다. 복잡하게 모든 일정 타입을 등록하는 기존 방식에서 <b>입력 흐름 자체를 다시 설계</b>함으로써 사용자가 더 적은 행동으로 같은 목표를 달성할 수 있도록 개선했습니다.",
         keywords: ["UX 개선", "폼 설계", "사용자 입력 최적화"],
-        images: {
-          before: "/img/img_naeconbu_troubleshooting_planner_before.png",
-          after: "/img/img_naeconbu_troubleshooting_planner_after.png",
-        },
+        images: [
+          {
+            before: "/img/img_naeconbu_troubleshooting_planner_before_01.png",
+            after: "/img/img_naeconbu_troubleshooting_planner_after_01.png",
+          },
+          {
+            before: "/img/img_naeconbu_troubleshooting_planner_before_02.png",
+            after: "/img/img_naeconbu_troubleshooting_planner_after_02.png",
+          },
+        ],
       },
       {
         title: "검색 API 과호출 최적화",
@@ -59,10 +70,33 @@ export const projects: Project[] = [
         solution:
           "연속된 입력값에 <b>Debounce 기법을 적용해 검색 요청을 제어</b>했고, <b>평균 API 호출 횟수를 6회에서 1회로 줄여 서버 리소스를 83% 절감</b>했습니다. 이를 통해 사용자는 더 안정적인 검색 경험을 얻고, 서비스는 불필요한 요청을 줄일 수 있었습니다.",
         keywords: ["Debounce", "성능 최적화", "API 요청 제어"],
-        images: {
-          before: "/img/img_naeconbu_troubleshooting_search_before.png",
-          after: "/img/img_naeconbu_troubleshooting_search_after.png",
-        },
+        codeSnippet: `// src/hooks/useDebounce.ts
+export function useDebounce<T>(value: T, delay = 300) {
+  const [debounced, setDebounced] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => setDebounced(value), delay);
+    return () => clearTimeout(handler); // 새 입력 시 이전 타이머 취소
+  }, [value, delay]);
+
+  return debounced;
+}
+
+// src/components/planner/sidebar/SearchPlaces.tsx
+const [term, setTerm] = useState(defaultValue ?? "");
+
+// 500ms 동안 입력이 없을 때만 실제 검색 실행
+const debouncedTerm = useDebounce(term, 500);
+
+// API 호출은 debouncedTerm 기준으로만 발생
+const { results, isLoading } = useSearchPlace(debouncedTerm, defaultCoords, scheduleType);
+
+// 입력 이벤트는 즉시 반영 (UX 유지), 검색은 debounce 적용
+<Input
+  value={term}
+  onChange={(e) => setTerm(e.target.value)} // 매 입력마다 term 업데이트
+/>
+        `,
       },
       {
         title: "Tanstack Query 캐싱 전략 적용",
@@ -71,10 +105,12 @@ export const projects: Project[] = [
         solution:
           "자주 변경되지 않는 공연·아티스트 목록에 <b>1시간 캐싱 전략</b>을 적용하고, 메인 페이지 진입 시 가장 먼저 노출되는 공연 목록에는 <b>prefetch 전략</b>을 추가 적용했습니다. 그 결과 <b>FCP가 2.1초 → 1.2초, LCP가 28.9초 → 16.2초로 개선</b>되어 사용자 경험과 SEO 모두 향상되었습니다.",
         keywords: ["Tanstack Query", "캐싱 전략", "성능 최적화", "SEO 개선"],
-        images: {
-          before: "/img/img_naeconbu_troubleshooting_cache_before.png",
-          after: "/img/img_naeconbu_troubleshooting_cache_after.png",
-        },
+        images: [
+          {
+            before: "/img/img_naeconbu_troubleshooting_cache_before.png",
+            after: "/img/img_naeconbu_troubleshooting_cache_after.png",
+          },
+        ],
       },
     ],
   },

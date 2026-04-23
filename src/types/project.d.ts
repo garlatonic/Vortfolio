@@ -30,5 +30,5 @@ type TroubleShooting = {
   images?: {
     before: string; // 문제 상황을 보여주는 이미지 경로 또는 URL
     after: string; // 해결된 상황을 보여주는 이미지 경로 또는 URL
-  };
+  }[];
 };
