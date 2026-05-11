@@ -1,10 +1,14 @@
 "use client";
 
+import { useIsMobile } from "@/hooks/useIsMobile";
+import { useIsMounted } from "@/hooks/useIsMounted";
 import { useMousePosition } from "@/hooks/useMousePosition";
 import { useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 export default function MousePointer() {
+  const isMobile = useIsMobile();
+  const isMounted = useIsMounted();
   const { x, y, cursor } = useMousePosition();
 
   const dotRef = useRef<HTMLDivElement>(null);
@@ -43,11 +47,13 @@ export default function MousePointer() {
     };
   }, []);
 
+  if (!isMounted || isMobile) return null;
+
   return (
     <div
       style={{ left: x, top: y }}
       className={twMerge(
-        "pointer fixed size-6 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white pointer-events-none mix-blend-difference transition-[width,height] duration-150 ease-out z-50",
+        "fixed size-6 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white pointer-events-none mix-blend-difference transition-[width,height] duration-150 ease-out z-50",
         cursor === "pointer" && "size-10",
       )}
     >

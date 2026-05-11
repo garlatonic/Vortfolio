@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { CustomThemeProvider } from "@/components/custom-theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import MousePointer from "@/components/common/mouse-pointer";
-import { isBrowser } from "react-device-detect";
+import { Suspense } from "react";
 
 const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
@@ -48,7 +48,7 @@ export default function RootLayout({
         <CustomThemeProvider>
           <TooltipProvider>
             {children}
-            {isBrowser && <MousePointer />}
+            <MousePointer />
           </TooltipProvider>
         </CustomThemeProvider>
       </body>
