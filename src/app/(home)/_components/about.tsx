@@ -45,15 +45,15 @@ export default function About({ className }: { className?: string }) {
     <SectionWrapper className={className}>
       <SectionTitle
         title="About me"
-        className="about-section-title hidden sr-only"
+        className="about-section-title sr-only hidden"
       />
-      <div className="about-content flex flex-col xl:flex-row gap-5 md:gap-10 xl:gap-30">
+      <div className="about-content flex flex-col gap-5 md:gap-10 xl:flex-row xl:gap-30">
         <h3 className="about-title flex flex-col font-extrabold whitespace-nowrap">
           <span className="about-mask block overflow-hidden">
             <span
               className={twMerge(
                 TYPOGRAPHY.about.introLead,
-                "about-active h-full block",
+                "about-active block h-full",
               )}
             >
               사용자의 편의를 설계하는
@@ -62,17 +62,19 @@ export default function About({ className }: { className?: string }) {
           <span
             className={twMerge(
               TYPOGRAPHY.about.introHighlight,
-              "block bg-background",
+              "bg-background block",
             )}
           >
             프론트엔드 개발자
           </span>
         </h3>
         <div className="about-body flex-1 space-y-10">
-          <div className={twMerge(
-            TYPOGRAPHY.about.description,
-            "space-y-5 lg:[&>p>br]:inline"
-          )}>
+          <div
+            className={twMerge(
+              TYPOGRAPHY.about.description,
+              "space-y-5 lg:[&>p>br]:inline",
+            )}
+          >
             <p className="about-desc">
               3년간의{" "}
               <span className="about-highlight text-foreground font-bold">
@@ -101,21 +103,21 @@ export default function About({ className }: { className?: string }) {
           <div className="space-y-5">
             <div className="flex items-end justify-between gap-4">
               <div className="space-y-1">
-                <h3 className="text-lg md:text-xl font-bold text-foreground">
+                <h3 className="text-foreground text-lg font-bold md:text-xl">
                   기술 스택
                 </h3>
               </div>
             </div>
-            <ul className="space-y-5 list-disc ml-6">
+            <ul className="ml-6 list-disc space-y-5">
               {skillGroups.map((group) => (
                 <li key={group.title}>
-                  <div className="flex flex-col items-start md:flex-row md:items-center gap-4">
+                  <div className="flex flex-col items-start gap-4 md:flex-row md:items-center">
                     <h4 className="font-bold uppercase">{group.title}</h4>
                     <ul className="flex flex-wrap gap-2">
                       {group.items.map((item) => (
                         <li
                           key={item}
-                          className="rounded-full border border-border/70 bg-background px-3 py-1.5 text-sm font-medium text-foreground"
+                          className="border-border/70 bg-background text-foreground rounded-full border px-3 py-1.5 text-sm font-medium"
                         >
                           {item}
                         </li>

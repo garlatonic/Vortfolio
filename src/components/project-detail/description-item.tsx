@@ -22,14 +22,14 @@ export default function DescriptionItem({
     >
       <h3 className={twMerge(TYPOGRAPHY.description.title)}>{title}</h3>
       {listType === "list" && (
-        <ul className={twMerge("space-y-1 md:space-y-2 ml-6 list-disc")}>
+        <ul className={twMerge("ml-6 list-disc space-y-1 md:space-y-2")}>
           {(description as string[]).map((d, index) => (
             <li key={index}>{d}</li>
           ))}
         </ul>
       )}
       {listType === "badge" && (
-        <div className="flex flex-wrap gap-2 ">
+        <div className="flex flex-wrap gap-2">
           {(description as string[]).map((d, index) => (
             <span key={index} className={TYPOGRAPHY.description.badge}>
               {d}
@@ -41,10 +41,17 @@ export default function DescriptionItem({
         <div className="space-y-2 lg:space-y-4">
           {Array.isArray(description) ? (
             description.map((desc, index) => (
-              <p key={index} dangerouslySetInnerHTML={{ __html: desc }} className="[&>b]:text-accent-foreground" />
+              <p
+                key={index}
+                dangerouslySetInnerHTML={{ __html: desc }}
+                className="[&>b]:text-accent-foreground"
+              />
             ))
           ) : (
-            <p dangerouslySetInnerHTML={{ __html: description }} className="[&>b]:text-accent-foreground" />
+            <p
+              dangerouslySetInnerHTML={{ __html: description }}
+              className="[&>b]:text-accent-foreground"
+            />
           )}
         </div>
       )}

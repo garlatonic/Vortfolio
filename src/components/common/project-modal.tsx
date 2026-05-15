@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import { useEffect } from "react";
 import { projects } from "@/data/projects";
 import Modal from "./modal";

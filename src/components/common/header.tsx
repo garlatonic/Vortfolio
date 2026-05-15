@@ -12,14 +12,14 @@ export default function Header({
   return (
     <header
       className={twMerge(
-        "header py-5 top-0 left-0 right-0 z-10",
+        "header top-0 right-0 left-0 z-10 py-5",
         className,
         !isMain && "fixed",
         isMain && "absolute w-full",
       )}
     >
-      <nav className="gnb flex justify-between items-center w-full">
-        <Link href="/" className="logo font-black text-lg tracking-wide">
+      <nav className="gnb flex w-full items-center justify-between">
+        <Link href="/" className="logo text-lg font-black tracking-wide">
           garlatonic.cv
         </Link>
         <ThemeButton />

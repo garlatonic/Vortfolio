@@ -33,7 +33,7 @@ export default function Projects({
       <div ref={wrapperRef} className="projects-track-wrapper overflow-hidden">
         <ul
           ref={trackRef}
-          className="md:inline-flex flex md:w-max flex-col md:flex-row gap-20 md:flex-nowrap md:gap-10 lg:gap-20 xl:gap-40 px-8 lg:px-12 "
+          className="flex flex-col gap-20 px-8 md:inline-flex md:w-max md:flex-row md:flex-nowrap md:gap-10 lg:gap-20 lg:px-12 xl:gap-40"
         >
           {projects.map((project) => (
             <ProjectItem

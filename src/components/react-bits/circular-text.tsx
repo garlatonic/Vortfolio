@@ -69,7 +69,7 @@ const CircularText: React.FC<CircularTextProps> = ({
     <motion.div
       ref={rootRef}
       className={twMerge(
-        "relative rounded-full text-center font-black origin-center w-full h-full cursor-none pointer-events-none",
+        "pointer-events-none relative h-full w-full origin-center cursor-none rounded-full text-center font-black",
         className,
       )}
       onMouseEnter={() => setIsHovered(true)}
@@ -101,7 +101,7 @@ const CircularText: React.FC<CircularTextProps> = ({
         return (
           <span
             key={`${letter}-${i}`}
-            className="absolute left-1/2 top-1/2 inline-block font-bold text-[10px] sm:text-xs md:text-sm lg:text-base"
+            className="absolute top-1/2 left-1/2 inline-block text-[10px] font-bold sm:text-xs md:text-sm lg:text-base"
             style={{
               transform: `
                 translate(-50%, -50%)

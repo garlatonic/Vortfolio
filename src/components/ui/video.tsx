@@ -35,10 +35,10 @@ export default function Video({
   };
 
   return (
-    <div className="relative w-full group cursor-pointer border aspect-video">
+    <div className="group relative aspect-video w-full cursor-pointer border">
       <video
         ref={videoRef}
-        className="aspect-video object-cover w-full"
+        className="aspect-video w-full object-cover"
         playsInline
         muted
         onPlay={() => setIsPlaying(true)}
@@ -56,14 +56,14 @@ export default function Video({
                 src={thumbnail}
                 alt="Video Thumbnail"
                 fill
-                className="object-cover scale-105"
+                className="scale-105 object-cover"
               />
               <div className="absolute inset-0 bg-black/50 backdrop-blur-xs" />
             </div>
           )}
-          <div className="relative text-center text-white inner">
+          <div className="inner relative text-center text-white">
             <div
-              className="size-10 lg:size-15 rounded-full border border-white/30 flex items-center justify-center group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all duration-300 backdrop-blur-sm mx-auto mb-4"
+              className="mx-auto mb-4 flex size-10 items-center justify-center rounded-full border border-white/30 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-white group-hover:text-black lg:size-15"
               onClick={handlePlay}
             >
               <PlayIcon className="size-5 lg:size-6" />
@@ -79,9 +79,9 @@ export default function Video({
         </div>
       )}
       {isPlaying && (
-        <div className="absolute inset-0 flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity bg-black/50 backdrop-blur-xs  text-white">
+        <div className="absolute inset-0 flex items-center justify-center bg-black/50 text-white opacity-0 backdrop-blur-xs transition-opacity group-hover:opacity-100">
           <div
-            className="size-10 lg:size-15 rounded-full border border-white/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all duration-300 backdrop-blur-sm mx-auto"
+            className="mx-auto mb-6 flex size-10 items-center justify-center rounded-full border border-white/30 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-white group-hover:text-black lg:size-15"
             onClick={handlePlay}
           >
             <PauseIcon className="size-5 lg:size-6" />

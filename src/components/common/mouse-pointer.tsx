@@ -53,13 +53,13 @@ export default function MousePointer() {
     <div
       style={{ left: x, top: y }}
       className={twMerge(
-        "fixed size-6 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white pointer-events-none mix-blend-difference transition-[width,height] duration-150 ease-out z-50",
+        "pointer-events-none fixed z-50 size-6 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white mix-blend-difference transition-[width,height] duration-150 ease-out",
         cursor === "pointer" && "size-10",
       )}
     >
       <div
         ref={dotRef}
-        className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full bg-white/90 pointer-events-none"
+        className="pointer-events-none absolute top-1/2 left-1/2 h-2 w-2 rounded-full bg-white/90"
       />
     </div>
   );

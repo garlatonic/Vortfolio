@@ -18,18 +18,18 @@ export default async function Page({
 
   if (!project) {
     return (
-      <main className="py-10 inner flex flex-col justify-center items-center min-h-screen">
-        <h1 className="text-4xl font-bold text-center">
+      <main className="inner flex min-h-screen flex-col items-center justify-center py-10">
+        <h1 className="text-center text-4xl font-bold">
           존재하지 않는 프로젝트입니다.
         </h1>
-        <p className="text-center mt-4 text-neutral-600">
+        <p className="mt-4 text-center text-neutral-600">
           입력하신 URL의 프로젝트를 찾을 수 없습니다. URL이 올바른지
           확인해주세요.
         </p>
-        <div className="flex justify-center mt-8">
+        <div className="mt-8 flex justify-center">
           <Link
             href="/"
-            className="px-6 py-3 border  text-sm font-medium hover:bg-neutral-900 hover:text-white transition-all duration-300"
+            className="border px-6 py-3 text-sm font-medium transition-all duration-300 hover:bg-neutral-900 hover:text-white"
           >
             Back to Home
           </Link>
@@ -39,7 +39,7 @@ export default async function Page({
   }
 
   return (
-    <main className="py-30 space-y-10 sm:space-y-20 inner">
+    <main className="inner space-y-10 py-30 sm:space-y-20">
       <ProjectDetail project={project} />
     </main>
   );

@@ -21,14 +21,14 @@ export default function SectionTitle({
     <div className={twMerge("relative", className)}>
       <h2
         className={twMerge(
-          "section-title text-5xl lg:text-8xl font-semibold italic text-muted bg-background pr-10 inline-block",
+          "section-title text-muted bg-background inline-block pr-10 text-5xl font-semibold italic lg:text-8xl",
           bodoniModa.className,
         )}
       >
         {title}
       </h2>
       <div
-        className="absolute top-1/2 left-0 w-full h-px bg-muted -z-1"
+        className="bg-muted absolute top-1/2 left-0 -z-1 h-px w-full"
         aria-label="꾸밈"
       />
     </div>

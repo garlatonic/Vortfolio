@@ -19,22 +19,22 @@ export default function Hero({ className }: { className?: string }) {
     <>
       <section
         className={twMerge(
-          "relative w-full h-screen overflow-hidden",
+          "relative h-screen w-full overflow-hidden",
           className,
         )}
       >
-        <div className="inner h-full flex  items-center">
+        <div className="inner flex h-full items-center">
           <Header className={twMerge(ibmPlexMono.className)} isMain />
           <h1
             className={twMerge(
               TYPOGRAPHY.hero.title,
-              "flex flex-col pointer-events-none",
+              "pointer-events-none flex flex-col",
             )}
           >
             <span>Hello, I&rsquo;m</span>
             <span>SangA Park.</span>
           </h1>
-          <div className="absolute bottom-0 left-0 w-full h-32 sm:h-36 md:h-40 lg:h-44 flex justify-end items-center mb-5">
+          <div className="absolute bottom-0 left-0 mb-5 flex h-32 w-full items-center justify-end sm:h-36 md:h-40 lg:h-44">
             <div className="relative size-32 sm:size-36 md:size-40 lg:size-44">
               <CircularText
                 className="opacity-50"
@@ -43,11 +43,11 @@ export default function Hero({ className }: { className?: string }) {
                 spinDuration={20}
                 radiusOffset={12}
               />
-              <AsteriskIcon className="absolute left-1/2 top-1/2 size-10 -translate-x-1/2 -translate-y-1/2 animate-spin animation-duration-[10s] direction-[reverse] " />
+              <AsteriskIcon className="animation-duration-[10s] direction-[reverse] absolute top-1/2 left-1/2 size-10 -translate-x-1/2 -translate-y-1/2 animate-spin" />
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 -z-10 dark:opacity-100 opacity-5">
+        <div className="absolute inset-0 -z-10 opacity-5 dark:opacity-100">
           <Silk
             speed={1.0}
             scale={0.7}

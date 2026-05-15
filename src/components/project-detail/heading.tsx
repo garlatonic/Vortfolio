@@ -26,17 +26,17 @@ export default function Heading({
           <p className={TYPOGRAPHY.heading.category}>
             {number?.toString().padStart(2, "0")} / {category}
           </p>
-          <h1 className={TYPOGRAPHY.heading.title}>
-            {name}
-          </h1>
-          <p className={TYPOGRAPHY.heading.overview}>
-            {overview}
-          </p>
+          <h1 className={TYPOGRAPHY.heading.title}>{name}</h1>
+          <p className={TYPOGRAPHY.heading.overview}>{overview}</p>
         </div>
         <div className="flex gap-2 md:gap-4">
           {isModal && (
             <Link href={`/projects/${slug}`}>
-              <Button variant="outline" size="lg" className={twMerge(TYPOGRAPHY.ui.button, "rounded-none")}>
+              <Button
+                variant="outline"
+                size="lg"
+                className={twMerge(TYPOGRAPHY.ui.button, "rounded-none")}
+              >
                 <FileTextIcon />
                 <span className="sr-only sm:not-sr-only">
                   프로젝트 상세 페이지로 이동
@@ -46,7 +46,11 @@ export default function Heading({
           )}
           {link && (
             <Link href={link} target="_blank">
-              <Button variant="outline" size="lg" className={twMerge(TYPOGRAPHY.ui.button, "rounded-none")}>
+              <Button
+                variant="outline"
+                size="lg"
+                className={twMerge(TYPOGRAPHY.ui.button, "rounded-none")}
+              >
                 <ExternalLinkIcon />
                 <span className="sr-only sm:not-sr-only">
                   배포 사이트로 이동
@@ -56,7 +60,10 @@ export default function Heading({
           )}
           {githubLink && (
             <Link href={githubLink} target="_blank">
-              <Button size="lg" className={twMerge(TYPOGRAPHY.ui.button, "rounded-none")}>
+              <Button
+                size="lg"
+                className={twMerge(TYPOGRAPHY.ui.button, "rounded-none")}
+              >
                 <GithubIcon />
                 <span className="sr-only sm:not-sr-only">
                   프로젝트 저장소로 이동

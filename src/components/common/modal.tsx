@@ -1,14 +1,20 @@
 import { XIcon } from "lucide-react";
 import { Button } from "../ui/button";
 
-export default function Modal({ children, onClose }: { children: React.ReactNode; onClose: () => void }) {
+export default function Modal({
+  children,
+  onClose,
+}: {
+  children: React.ReactNode;
+  onClose: () => void;
+}) {
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/60 flex items-start justify-center overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/60"
       onClick={onClose}
     >
       <div
-        className="relative bg-background w-full max-w-7xl my-8 mx-4 lg:mx-8"
+        className="bg-background relative mx-4 my-8 w-full max-w-7xl lg:mx-8"
         onClick={(e) => e.stopPropagation()}
       >
         <Button
@@ -20,9 +26,7 @@ export default function Modal({ children, onClose }: { children: React.ReactNode
           <XIcon />
           <span className="sr-only">닫기</span>
         </Button>
-        <main className="py-20 space-y-10 sm:space-y-15 inner">
-          {children}
-        </main>
+        <main className="inner space-y-10 py-20 sm:space-y-15">{children}</main>
       </div>
     </div>
   );

@@ -16,14 +16,14 @@ export default function ProjectItem({
   return (
     <li
       key={project.slug}
-      className="project-item md:w-[80dvw] max-w-350 group"
+      className="project-item group max-w-350 md:w-[80dvw]"
     >
       <button
-        className="grid lg:grid-cols-5 gap-x-15 md:gap-y-8 lg:gap-y-10 gap-y-6 w-full text-left"
+        className="grid w-full gap-x-15 gap-y-6 text-left md:gap-y-8 lg:grid-cols-5 lg:gap-y-10"
         onClick={() => onOpenModal(project.slug)}
         aria-label="프로젝트 자세히 보기"
       >
-        <div className="space-y-4 md:space-y-5 lg:space-y-6 lg:col-span-2 lg:flex lg:flex-col lg:justify-center">
+        <div className="space-y-4 md:space-y-5 lg:col-span-2 lg:flex lg:flex-col lg:justify-center lg:space-y-6">
           <div className="project-header space-y-2 xl:space-y-5">
             <p
               className={twMerge(
@@ -58,7 +58,7 @@ export default function ProjectItem({
                   key={index}
                   className={twMerge(
                     TYPOGRAPHY.project.skillBadge,
-                    "px-1.5 sm:px-2 py-0.5 sm:py-1 bg-muted-foreground/10",
+                    "bg-muted-foreground/10 px-1.5 py-0.5 sm:px-2 sm:py-1",
                   )}
                 >
                   {skill}
@@ -71,7 +71,7 @@ export default function ProjectItem({
             <div
               className={twMerge(
                 TYPOGRAPHY.ui.button,
-                "inline-flex shrink-0 items-center justify-center rounded-4xl border bg-clip-padding whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:bg-transparent dark:hover:bg-input/30 h-10 gap-1.5 px-4 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3 text-xs sm:text-sm font-medium"
+                "focus-visible:border-ring focus-visible:ring-ring/30 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-input/30 inline-flex h-10 shrink-0 items-center justify-center gap-1.5 rounded-4xl border bg-clip-padding px-4 text-xs font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3 aria-invalid:ring-3 sm:text-sm dark:bg-transparent [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
               )}
             >
               <FileTextIcon />
@@ -79,7 +79,7 @@ export default function ProjectItem({
             </div>
           </div>
         </div>
-        <div className="project-thumbnail relative aspect-750/500 row-start-1 lg:col-span-3 overflow-hidden h-auto border lg:row-start-auto rounded-lg md:rounded-xl lg:rounded-2xl">
+        <div className="project-thumbnail relative row-start-1 aspect-750/500 h-auto overflow-hidden rounded-lg border md:rounded-xl lg:col-span-3 lg:row-start-auto lg:rounded-2xl">
           <Image
             src={project.thumbnail}
             alt={`${project.name} screenshot`}

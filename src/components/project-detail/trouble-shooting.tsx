@@ -11,16 +11,16 @@ export default function TroubleShooting({
   slug: string;
 }) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 w-full">
-      <div className="lg:col-span-1 space-y-24">
+    <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-10">
+      <div className="space-y-24 lg:col-span-1">
         <div className="sticky top-32 space-y-4 leading-normal">
           <h2 className={TYPOGRAPHY.troubleShooting.subject}>
             {troubleShooting.title}
           </h2>
-          <div className="h-1 w-12 bg-foreground" />
+          <div className="bg-foreground h-1 w-12" />
         </div>
       </div>
-      <div className="lg:col-span-2 space-y-8 sm:space-y-12 md:space-y-16 lg:space-y-20">
+      <div className="space-y-8 sm:space-y-12 md:space-y-16 lg:col-span-2 lg:space-y-20">
         <div className="space-y-2 md:gap-4">
           <h3 className={TYPOGRAPHY.troubleShooting.title}>문제 정의</h3>
           <p
@@ -67,7 +67,7 @@ export default function TroubleShooting({
             width={0}
             height={0}
             sizes="100vw"
-            className="w-full h-auto border"
+            className="h-auto w-full border"
           />
         )}
       </div>

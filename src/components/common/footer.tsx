@@ -27,7 +27,7 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="footer bg-accent/50">
-      <div className="inner flex flex-col lg:flex-row py-15 md:py-20 justify-between gap-15">
+      <div className="inner flex flex-col justify-between gap-15 py-15 md:py-20 lg:flex-row">
         <h2
           className={twMerge(
             TYPOGRAPHY.footer.headline,
@@ -38,7 +38,7 @@ export default function Footer() {
           <span className="text-outline">touch</span>
         </h2>
         <Separator className="lg:hidden" />
-        <div className="flex flex-col gap-6 lg:flex-none flex-1">
+        <div className="flex flex-1 flex-col gap-6 lg:flex-none">
           {socialLinks.map((link) => (
             <Magnet key={link.name} padding={10} magnetStrength={10}>
               <Link

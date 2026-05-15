@@ -10,7 +10,7 @@ export function CodeBlock({ fileName, code }: CodeBlockProps) {
         <div className="h-3 w-3 rounded-full bg-red-500" />
         <div className="h-3 w-3 rounded-full bg-yellow-500" />
         <div className="h-3 w-3 rounded-full bg-green-500" />
-        <span className="ml-2 text-xs uppercase tracking-wide text-neutral-500">
+        <span className="ml-2 text-xs tracking-wide text-neutral-500 uppercase">
           {fileName}
         </span>
       </div>
