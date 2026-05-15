@@ -41,11 +41,16 @@ export default function MousePointer() {
   }, [x, y]);
 
   useEffect(() => {
+    if (isMobile)
+      return () => {
+        document.body.style.cursor = "default";
+      };
+
     document.body.style.cursor = "none";
     return () => {
       document.body.style.cursor = "default";
     };
-  }, []);
+  }, [isMobile]);
 
   if (!isMounted || isMobile) return null;
 
