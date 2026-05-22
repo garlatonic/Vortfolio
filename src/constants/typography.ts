@@ -42,22 +42,26 @@ export const TYPOGRAPHY = {
       "text-xs sm:text-sm md:text-lg font-medium break-keep text-muted-foreground",
   },
   description: {
-    title: "text-xs md:text-sm font-bold tracking-widest text-muted-foreground",
+    title:
+      "text-xs md:text-sm font-bold tracking-widest! text-muted-foreground",
     content: "text-sm sm:text-base md:text-lg font-medium text-foreground/90",
     list: "text-base md:text-lg font-medium leading-relaxed text-foreground ml-6 list-disc",
     badge: "px-2 py-1 bg-muted-foreground/10 text-sm",
   },
   challenge: {
-    title: "text-xs md:text-sm font-bold tracking-widest text-muted-foreground",
+    title:
+      "text-xs md:text-sm font-bold tracking-widest! text-muted-foreground",
     content: "text-base md:text-lg font-medium leading-relaxed text-foreground",
   },
   troubleShooting: {
     // 주제를 영어로
-    subject:
-      "text-xl lg:text-2xl font-bold uppercase break-keep",
-    title: "text-xs md:text-sm font-bold tracking-widest text-muted-foreground",
-    problem: "text-sm sm:text-base md:text-lg font-medium text-foreground/90 [&>b]:text-accent-foreground",
-    solution: "text-sm sm:text-base md:text-lg font-medium text-foreground/90 [&>b]:text-accent-foreground",
+    subject: "text-xl lg:text-2xl font-bold uppercase break-keep",
+    title:
+      "text-xs md:text-sm font-bold tracking-widest! text-muted-foreground",
+    problem:
+      "text-sm sm:text-base md:text-lg font-medium text-foreground/90 [&>b]:text-accent-foreground",
+    solution:
+      "text-sm sm:text-base md:text-lg font-medium text-foreground/90 [&>b]:text-accent-foreground",
   },
 
   video: {
