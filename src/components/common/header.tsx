@@ -31,6 +31,14 @@ export default function Header({
           >
             resume
           </Link>
+          <Link
+            href="/career"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium transition-opacity hover:opacity-60"
+          >
+            career
+          </Link>
           <ThemeButton />
         </div>
       </nav>

@@ -5,18 +5,7 @@ export default function ResumeHeader({
   name,
   meta,
   introduction,
-}: {
-  name: string;
-  meta: {
-    common: { label: string; value: string }[];
-    links: {
-      label: string;
-      value: string;
-      icon?: React.ComponentType<{ className?: string }>;
-    }[];
-  };
-  introduction: string[];
-}) {
+}: Pick<ResumeData, "name" | "jobTitle" | "meta" | "introduction">) {
   return (
     <div className="border-t-primary space-y-4 border-t-2 border-b py-4">
       <header className="border-b pb-4">

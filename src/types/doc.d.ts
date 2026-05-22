@@ -1,5 +1,6 @@
 type DocIconComponent = React.ComponentType<{ className?: string }>;
 
+// Resume 관련 타입 정의
 interface ResumeMetaCommonItem {
   label: string;
   value: string;
@@ -73,4 +74,52 @@ interface ResumeData {
   portfolio: ResumePortfolioItem[];
   career: ResumeCareerItem[];
   projects: ResumeProjectItem[];
+}
+
+// Career 관련 타입 정의
+interface CareerPosition {
+  team: string;
+  grade?: string;
+  term?: string;
+}
+
+interface CareerKeyAchievement {
+  title: string;
+  details: string[];
+  techStack?: string[];
+}
+
+interface CareerAchievement {
+  title: string;
+  problems: string[];
+  solutions: string[];
+  results: string[];
+  techStack?: string[];
+}
+
+interface CareerProject {
+  title: string;
+  period: string;
+  description: string;
+  responsibilities: {
+    title: string;
+    details: string[];
+  }[];
+  achievements: Array<string | CareerAchievement>;
+  techStack: string[];
+}
+
+interface Career {
+  company: string;
+  period: string;
+  position: CareerPosition;
+  summary: string;
+  responsibilities: string[];
+  keyAchievements: CareerKeyAchievement[];
+  projects: CareerProject[];
+  isEducation?: boolean;
+}
+
+interface CareerData {
+  career: Career[];
 }

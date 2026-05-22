@@ -139,7 +139,16 @@ export default function About({ className }: { className?: string }) {
             >
               이력서
             </Link>
-            로 저에 대해 더 자세한 정보를 확인하실 수 있습니다.
+            와{" "}
+            <Link
+              href="/career"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground font-medium underline underline-offset-4"
+            >
+              경력사항
+            </Link>
+            으로 더 자세한 정보를 확인하실 수 있습니다.
           </p>
         </div>
       </div>

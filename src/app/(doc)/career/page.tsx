@@ -1,7 +1,10 @@
-export default function Page() {
+import DocPage from "../_components/doc-page";
+import CareerContainer from "../_components/career-container";
+
+export default function CareerPage() {
   return (
-    <>
-      <h1>Page Component</h1>
-    </>
+    <DocPage>
+      <CareerContainer />
+    </DocPage>
   );
 }

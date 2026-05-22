@@ -29,7 +29,7 @@ export default function DocPage({ children }: { children: React.ReactNode }) {
     <>
       <main
         ref={docRef}
-        className="max-w-4xl space-y-6 bg-white p-4 text-zinc-900 sm:px-6 sm:py-5 md:px-10 md:py-9 lg:px-14 lg:py-12"
+        className="max-w-4xl space-y-6 bg-white p-4 text-zinc-900 sm:px-6 sm:py-5 md:px-10 md:py-9 lg:px-14 lg:py-12 print:pt-0"
       >
         {children}
       </main>
