@@ -15,16 +15,15 @@ export default function CareerContainer() {
           className="grid gap-8 border-b border-zinc-200 pb-8 md:grid-cols-[210px_1fr] print:grid-cols-[210px_1fr] print:gap-8"
         >
           <header className="space-y-3">
-            <div className="space-y-0.5">
-              <h2 className="text-base leading-none font-bold">{c.company}</h2>
-              <p className="text-2xs text-muted-foreground">{c.period}</p>
-              <p className="text-2xs text-muted-foreground">
+            <h2 className="text-base leading-none font-bold">{c.company}</h2>
+            <div className="space-y-0">
+              <p className="text-3xs text-muted-foreground">{c.period}</p>
+              <p className="text-3xs text-muted-foreground">
                 {c.position.team}
-                {!c.isEducation &&
-                  ` · ${c.position.grade} · ${c.position.term}`}
+                {!c.isEducation && ` · ${c.position.grade} · ${c.position.term}`}
               </p>
             </div>
-            <p className="text-2xs text-muted-foreground border-t pt-2">
+            <p className="text-2xs text-muted-foreground border-t pt-3">
               {c.summary}
             </p>
           </header>

@@ -1,4 +1,4 @@
-import DocItem from "./resume-item";
+import ResumeItem from "./resume-item";
 import Link from "next/link";
 
 export default function ResumeAside({
@@ -7,23 +7,18 @@ export default function ResumeAside({
   education,
   certifications,
   portfolio,
-}: {
-  coreCompetencies: string[];
-  techStack: string[];
-  education: { title: string; subtitle: string; period: string }[];
-  certifications: { title: string; issuer: string; date: string }[];
-  portfolio: {
-    title: string;
-    description: string;
-    link: string;
-    icon?: React.ComponentType<{ className?: string }>;
-    isLink: boolean;
-  }[];
-}) {
+}: Pick<
+  ResumeData,
+  | "coreCompetencies"
+  | "techStack"
+  | "education"
+  | "certifications"
+  | "portfolio"
+>) {
   return (
     <aside className="space-y-8">
       {/* 핵심 역량 */}
-      <DocItem title="Core Competencies">
+      <ResumeItem title="Core Competencies">
         <ul className="text-2xs">
           {coreCompetencies.map((c) => (
             <li key={c} className="before:mr-1 before:content-['•']">
@@ -31,9 +26,9 @@ export default function ResumeAside({
             </li>
           ))}
         </ul>
-      </DocItem>
+      </ResumeItem>
       {/* 기술 스택 */}
-      <DocItem title="Tech Stack">
+      <ResumeItem title="Tech Stack">
         <ul className="flex flex-wrap gap-1">
           {techStack.map((s) => (
             <li key={s}>
@@ -43,9 +38,9 @@ export default function ResumeAside({
             </li>
           ))}
         </ul>
-      </DocItem>
+      </ResumeItem>
       {/* 교육 */}
-      <DocItem title="Education">
+      <ResumeItem title="Education">
         <ul className="space-y-4">
           {education.map((edu) => (
             <li key={edu.title} className="space-y-1">
@@ -58,9 +53,9 @@ export default function ResumeAside({
             </li>
           ))}
         </ul>
-      </DocItem>
+      </ResumeItem>
       {/* 자격증 */}
-      <DocItem title="Certificate">
+      <ResumeItem title="Certificate">
         <ul className="space-y-4">
           {certifications.map((cert) => (
             <li key={cert.title} className="space-y-1">
@@ -71,9 +66,9 @@ export default function ResumeAside({
             </li>
           ))}
         </ul>
-      </DocItem>
+      </ResumeItem>
       {/* 포트폴리오 */}
-      <DocItem title="Portfolio">
+      <ResumeItem title="Portfolio">
         <ul className="flex flex-col gap-1">
           {portfolio.map((item) => (
             <li key={item.title}>
@@ -89,7 +84,7 @@ export default function ResumeAside({
             </li>
           ))}
         </ul>
-      </DocItem>
+      </ResumeItem>
     </aside>
   );
 }
