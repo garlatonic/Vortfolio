@@ -4,6 +4,7 @@ import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import { CustomThemeProvider } from "@/components/custom-theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import PrintBlocker from "@/components/common/print-blocker";
 
 const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
@@ -35,18 +36,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" suppressHydrationWarning>
+    <html lang="ko" suppressHydrationWarning data-env={process.env.NODE_ENV}>
       <body
+        data-env={process.env.NODE_ENV}
         className={twMerge(
           "**:tracking-tight",
           notoSansKR.variable,
           "font-sans",
         )}
       >
+        <PrintBlocker />
         <CustomThemeProvider>
-          <TooltipProvider>
-            {children}
-          </TooltipProvider>
+          <TooltipProvider>{children}</TooltipProvider>
         </CustomThemeProvider>
       </body>
     </html>

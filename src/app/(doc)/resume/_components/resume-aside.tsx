@@ -1,5 +1,4 @@
 import ResumeItem from "./resume-item";
-import Link from "next/link";
 
 export default function ResumeAside({
   coreCompetencies,
@@ -72,7 +71,7 @@ export default function ResumeAside({
         <ul className="flex flex-col gap-1">
           {portfolio.map((item) => (
             <li key={item.title}>
-              <Link
+              <a
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -80,7 +79,7 @@ export default function ResumeAside({
               >
                 {item.icon && <item.icon className="size-3" />}
                 {item.title}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>

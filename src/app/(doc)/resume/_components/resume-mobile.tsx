@@ -1,4 +1,3 @@
-import Link from "next/link";
 import ResumeItem from "./resume-item";
 
 export default function ResumeMobile({
@@ -146,7 +145,7 @@ export default function ResumeMobile({
         <ul className="flex flex-col gap-1">
           {portfolio.map((item) => (
             <li key={item.title}>
-              <Link
+              <a
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -154,7 +153,7 @@ export default function ResumeMobile({
               >
                 {item.icon && <item.icon className="size-3" />}
                 {item.title}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>

@@ -216,4 +216,23 @@
   @page {
     margin: 10mm 5mm;
   }
+
+  a[href] {
+    color: inherit !important;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  html[data-env="production"] body {
+    display: none !important;
+  }
+
+  html[data-env="development"] a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0px;
+  }
+
+  html[data-env="production"] a[href]::after {
+    content: "";
+  }
 }

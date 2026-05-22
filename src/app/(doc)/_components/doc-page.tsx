@@ -8,6 +8,10 @@ export default function DocPage({ children }: { children: React.ReactNode }) {
   const docRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (process.env.NODE_ENV !== "development") {
+      return;
+    }
+
     const params = new URLSearchParams(window.location.search);
 
     if (params.get("print") !== "1") {

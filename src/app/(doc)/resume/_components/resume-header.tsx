@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function ResumeHeader({
   name,
@@ -24,7 +23,7 @@ export default function ResumeHeader({
             </dl>
             <nav className="space-x-1" aria-label="외부 프로필 링크">
               {meta.links.map((item) => (
-                <Link
+                <a
                   key={item.label}
                   href={item.value}
                   target="_blank"
@@ -33,7 +32,7 @@ export default function ResumeHeader({
                 >
                   {item.icon && <item.icon className="inline-block size-4" />}
                   <p className="sr-only">{item.label}로 이동</p>
-                </Link>
+                </a>
               ))}
             </nav>
           </div>
