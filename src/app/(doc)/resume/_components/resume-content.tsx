@@ -1,4 +1,4 @@
-import DocItem from "./doc-item";
+import DocItem from "./resume-item";
 
 export default function ResumeContent({
   career,

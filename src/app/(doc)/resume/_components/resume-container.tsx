@@ -1,8 +1,8 @@
 import { resumeData } from "@/data/resume";
-import ResumeHeader from "./resume-header";
 import { QuoteIcon } from "lucide-react";
 import ResumeAside from "./resume-aside";
 import ResumeContent from "./resume-content";
+import ResumeHeader from "./resume-header";
 
 export default function ResumeContainer() {
   const data = resumeData;

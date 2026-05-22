@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-export default function DocItemTitle({
+export default function ResumeItemTitle({
   title,
   id,
 }: {

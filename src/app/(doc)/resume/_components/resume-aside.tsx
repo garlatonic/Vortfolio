@@ -1,4 +1,4 @@
-import DocItem from "./doc-item";
+import DocItem from "./resume-item";
 import Link from "next/link";
 
 export default function ResumeAside({
