@@ -28,15 +28,20 @@ export default function Footer() {
   return (
     <footer className="footer bg-accent/50">
       <div className="inner flex flex-col justify-between gap-15 py-15 md:py-20 lg:flex-row">
-        <h2
-          className={twMerge(
-            TYPOGRAPHY.footer.headline,
-            "flex flex-wrap gap-x-6",
-          )}
-        >
-          <span>get in</span>
-          <span className="text-outline">touch</span>
-        </h2>
+        <div className="flex flex-col justify-between gap-6">
+          <h2
+            className={twMerge(
+              TYPOGRAPHY.footer.headline,
+              "flex flex-wrap gap-x-6",
+            )}
+          >
+            <span>get in</span>
+            <span className="text-outline">touch</span>
+          </h2>
+          <p className="text-muted-foreground text-sm">
+            Copyright &copy; 2026 garlatonic.cv. All rights reserved.
+          </p>
+        </div>
         <Separator className="lg:hidden" />
         <div className="flex flex-1 flex-col gap-6 lg:flex-none">
           {socialLinks.map((link) => (
