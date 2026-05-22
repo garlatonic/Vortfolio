@@ -1,17 +1,17 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useSearchParams } from "next/navigation";
 import DocPage from "../_components/doc-page";
 import { Button } from "@/components/ui/button";
 import { PrinterIcon } from "lucide-react";
 
 export default function Resume() {
   const resumeRef = useRef<HTMLDivElement>(null);
-  const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (searchParams.get("print") !== "1") {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("print") !== "1") {
       return;
     }
 
@@ -20,7 +20,7 @@ export default function Resume() {
     }, 300);
 
     return () => window.clearTimeout(timer);
-  }, [searchParams]);
+  }, []);
 
   const handlePrint = () => {
     window.print();
