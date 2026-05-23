@@ -36,7 +36,7 @@ export default function ResumeContainer() {
         </Activity>
       </div>
       {/* 자기소개 */}
-      <div className="space-y-3">
+      <div className="space-y-3 border-b pb-8">
         <h3 className="text-3xs text-muted-foreground/70 leading-none font-medium tracking-widest!">
           자기소개서
         </h3>
